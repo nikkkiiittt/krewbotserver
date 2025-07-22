@@ -152,7 +152,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const transports = {};
-
+app.get("/", (req, res) => {
+  res.send("✅ MCP Chat Server is running!");
+});
 // MCP SSE endpoint
 app.get("/sse", async (req, res) => {
   const transport = new SSEServerTransport("/messages", res);
